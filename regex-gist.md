@@ -70,13 +70,23 @@ Grouping constructs serve multiple purposes within a regular expression.  They a
 In our regular expression we see four grouping constructs which I will separate with ~~~ in the following snippet:
 
 ```
-/^(https?:\/\/)?   ~~~  ([\da-z\.-]+)   ~~~    \.([a-z\.]{2,6})   ~~~   ([\/\w \.-]*)*\/?$/
+(https?:\/\/)?   ~~~  ([\da-z\.-])   ~~~    ([a-z\.]{2,6})   ~~~   ([\/\w \.-]*)*
 ```
 The point of the first construct is to group together the https:// portion  of the URL and assign the ? quantifier to make it optional.  The  second construct would represent the main content URL, namely everything before the .com.  This is likely grouped in order to capture it and make it available for re-use.  The  third represents the  .com, .net, .org, or whatever tag might end the URL.  The last one is grouped together possibly to capture the search parameters following the .com but also to assign the *  (0 or more instances) identifier to  the entire group, meaning that there could be 0 characters after .com or there could be hundreds.
 
 ### Bracket Expressions
+Bracket expressions are parameters that we place inside of square brackets [ ].  They represent ranges of characters that we might be searching for and are not literal like grouping constructs.  In other words [abc] will search for any string that contains an "a", "b", or "c", not only strings that are literally "abc".  More commonly, hyphens are used to express ranges of characters, such as [a-zA-Z] to match all letters.  They can be inverted with carets ^, thus [^a-zA-Z] would search for all strings that do not contain any letters at all.
+
+In our URL regex we have three brackets expressions, which I will reprint below:
+
+```
+[\da-z\.-]     [a-z\.]       [\/\w \.-]
+```
+The first uses character classes and character escapes that will be discussed later, but essentially means that this expression will match with any string that contains a digit, a lowercase letter, a period, or a hyphen.  The second simply includes lowercase letters and a period.  The last one will match with any string that contains a forward slash, any uppercase or lowercase letter or digit, or a period or hyphen.
 
 ### Character Classes
+
+
 
 ### The OR Operator
 
