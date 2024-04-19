@@ -42,10 +42,23 @@ In our example, we can see two anchors, a caret ^ and a dollar $, used to indica
 Put another way, all of the search parameters necessary for matching a URL are contained within the caret and dollar sign.
 
 ### Quantifiers
+Quantifiers are components that indicate how many characters of a certain type you are searching for.  Because they do not provide any information about the type of character, they are typically attached to another kind of component, such as a character class, a component which will be explained later.  There are a variety of quantifiers: curly brackets can be used to indicate a minimum and maximum value, {min, max}, a minimum value, { min, }, or a specific value, { value }. There are also symbols that indicate specific quantities, such as * for a pattern that occurs 0 or more times, + for 1 or more times, and ? for a pattern that either doesn't occur or only occurs once. 
 
-### Grouping Constructs
+We see many examples of quantifiers in our URL matching regex. In the first portion of the expression, we can see three:
+
+```
+^(https?:\/\/)?([\da-z\.-]+)
+```
+
+The three quantifiers are the two question marks and the + at the end.  As stated above, ? indicates that the preceding character may occur 0 times or only once.  It is first attached to the "s" at the end of https.  This means that, due to the ?, this expression will match  with a URL that begins with http ("s" occurs 0 times), or https ("s" occurs 1 time).
+
+There is a second question mark that follows the first closing parenthesis.  The parentheses group everything within, as will be discussed further in following sections.  As such, the ? that follows that closing parenthesis refers to everything contained within the parentheses.  Consequently, this regex will match with a string that begins with "http(s)://" or that doesn't begin with "http(s)://".  In other words, the http(s):// at the beginning of the URL is completely optional, and the string will be recognized as a URL with or without it.
+
+Lastly, there is a + at the end of this whole portion of the expression.  It follows a closing square bracket, which, similarly to the parentheses we've seen, groups the parameters that precedes it up until the square brackets are opened.  Thus, the + is attached to the entire phrase [\da-z\.-].  Bracket expressions will be covered later, but suffice it to say now that the the content of the brackets indicates that what follows the https:// can contain digits, lower case letters, periods, or hyphens. The  + quantifier attached to this phrase means that the string must contain 1 or more of these characters.  To summarize "1abc", "abc", "123-", "-" etc. would match, but "A13-" would not, because the regex does not include capital letters.
 
 ### Bracket Expressions
+
+### Grouping Constructs
 
 ### Character Classes
 
