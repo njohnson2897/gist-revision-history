@@ -8,11 +8,15 @@ First, they can be used as an extremely adaptable document search function.  Rat
 
 The other most common usage of regex would be to validate certain user inputs.  For example, a webpage might have a form in which users are meant to input a phone number and email address to sign up for an account.  Because phone numbers and email addresses all share certain properties (e.g. all email addresses containing an @ followed by a domain name), regex can be used to validate that the string inputted by the user is, in fact, the proper syntax for an email adress or phone number. 
 
-The remainder of this gist will be looking at a specific regex that can be used to search for a validate that a string is a URL.
-
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+The remainder of this gist will be looking at a specific regex that can be used to search for a validate that a string is a URL.  The following is what this sort of regular expression looks like:
+
+```
+/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+```
+
+Regular expressions can be made up of a variety of components, including anchors, quantifiers, grouping constructs, bracket expressions, etc.  These components all add or qualify certain parameters within the expression to further specify the search pattern of the expression.  In the sections below, I will explain what each type of component can do and how they operate within the example regular expression above.
 
 ## Table of Contents
 
