@@ -16,7 +16,7 @@ The remainder of this gist will be looking at a specific regex that can be used 
 /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 ```
 
-Regular expressions can be made up of a variety of components, including anchors, quantifiers, grouping constructs, bracket expressions, etc.  These components all add or qualify certain parameters within the expression to further specify the search pattern of the expression.  In the sections below, I will explain what each type of component can do and how they operate within the example regular expression above.
+Regular expressions are always contained by forward slashes to indicate the beginning and end of the expression.  They can be made up of a variety of components, including anchors, quantifiers, grouping constructs, bracket expressions, etc.  These components all add or qualify certain parameters within the expression to further specify the search pattern of the expression.  In the sections below, I will explain what each type of component can do and how they operate within the example regular expression above.
 
 ## Table of Contents
 
@@ -32,6 +32,9 @@ Regular expressions can be made up of a variety of components, including anchors
 ## Regex Components
 
 ### Anchors
+Anchors are regex elements that signify positioning of the characters that either follow or precede them.  In other words, anchors indicate where the string that they might match would begin or end.  The two most common anchors are the caret "^" to mark the beginning of the string pattern and the dollar sign "$" to mark the end.  There is also the \b anchor to indicate a "word boundary", namely the end or beginning of a word or grouping of characters within the string as a whole.
+
+In our example, we can see two anchors, a caret ^ and a dollar $, used to indicate that the URL will match all of the parameters that follow the caret and precede the dollar sign.  Put another way, all of the search parameters necessary for matching a URL are contained within the caret and dollar sign.
 
 ### Quantifiers
 
