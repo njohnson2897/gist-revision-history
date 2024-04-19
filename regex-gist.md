@@ -98,7 +98,7 @@ The first is seen in the second grouping construct.  The expression utilizes a \
 Regular expressions can utilize an OR operator, represented by a pipe |, to add additional logic to the parameters.  ORs can be used to make grouping constructs more flexible while still utilizing the capturing benefit of the constructs.  For example, (a|b|c) would no longer be a strict match for only the string "abc" but now acts more like [abc] while still capturing the  matched data.  However, there are no OR operators within this URL regex.
 
 ### Flags
-
+Flags are used to define additional functionality or limits of a regular expression.  They are found after the forward slash that ends a regex.  The most common flags are "g", "i", and "m", which indicate that the regex should be a global, case-insensitive, or multi-line search, respectively.  There are also no flags in this URL regex.
 
 ### Character Escapes
 
