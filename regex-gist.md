@@ -56,9 +56,18 @@ There is a second question mark that follows the first closing parenthesis.  The
 
 Lastly, there is a + at the end of this whole portion of the expression.  It follows a closing square bracket, which, similarly to the parentheses we've seen, groups the parameters that precedes it up until the square brackets are opened.  Thus, the + is attached to the entire phrase [\da-z\.-].  Bracket expressions will be covered later, but suffice it to say now that the the content of the brackets indicates that what follows the https:// can contain digits, lower case letters, periods, or hyphens. The  + quantifier attached to this phrase means that the string must contain 1 or more of these characters.  To summarize "1abc", "abc", "123-", "-" etc. would match, but "A13-" would not, because the regex does not include capital letters.
 
-### Bracket Expressions
+In the second half of the expression we see four quantifiers as well: 
+
+```
+([a-z\.]{2,6})([\/\w \.-]*)*\/?$
+```
+
+The first is a {min, max} quantifier, indicating that the bracket expression it is connected to can have between 2-6 a-z characters.  The second and third are * quantifiers, which mean that the bracket and parentheses expressions that they are respectively attached to can occur 0 or more times.  In other words, the character parameters outlined in those expressions can be nonexistent or be as many characters long as necessary.   Lastly, we have another ? quantifier following the forward slash at the end of the expression.   Again, this indicates that the forward slash is optional.
 
 ### Grouping Constructs
+
+
+### Bracket Expressions
 
 ### Character Classes
 
