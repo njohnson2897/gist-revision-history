@@ -65,7 +65,14 @@ In the second half of the expression we see four quantifiers as well:
 The first is a {min, max} quantifier, indicating that the bracket expression it is connected to can have between 2-6 a-z characters.  The second and third are * quantifiers, which mean that the bracket and parentheses expressions that they are respectively attached to can occur 0 or more times.  In other words, the character parameters outlined in those expressions can be nonexistent or be as many characters long as necessary.   Lastly, we have another ? quantifier following the forward slash at the end of the expression.   Again, this indicates that the forward slash is optional.
 
 ### Grouping Constructs
+Grouping constructs serve multiple purposes within a regular expression.  They are represented with open and close parentheses (  ), and much like their mathematical counterpart, they group the characters that are found within them.  Due to this grouping, a quantifier attached at the end of a grouping construct would apply to the whole group, as explained in the quantifier section.  It is important to note that, unlike bracket expressions, the characters represented within the construct are considered literal unless otherwise indicated.  This means that (abc) would be a search pattern that only matches with "abc" and not "cba", "ac" or "bc".  Further, (abc)? would mean that a string "abc" can occur 0 or 1 times, not that each of "a", "b", and "c" are optional.  The last point to note about these constructs is that they can be used to "capture" the data within them, meaning that when a matching process is complete, the data can be return for re-use in another manner.
 
+In our regular expression we see four grouping constructs which I will separate with ~~~ in the following snippet:
+
+```
+/^(https?:\/\/)?   ~~~  ([\da-z\.-]+)   ~~~    \.([a-z\.]{2,6})   ~~~   ([\/\w \.-]*)*\/?$/
+```
+The point of the first construct is to group together the https:// portion  of the URL and assign the ? quantifier to make it optional.  The  second construct would represent the main content URL, namely everything before the .com.  This is likely grouped in order to capture it and make it available for re-use.  The  third represents the  .com, .net, .org, or whatever tag might end the URL.  The last one is grouped together possibly to capture the search parameters following the .com but also to assign the *  (0 or more instances) identifier to  the entire group, meaning that there could be 0 characters after .com or there could be hundreds.
 
 ### Bracket Expressions
 
