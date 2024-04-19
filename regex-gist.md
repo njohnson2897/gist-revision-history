@@ -95,8 +95,10 @@ In the URL regex, we see two character classes called:
 The first is seen in the second grouping construct.  The expression utilizes a \d within a bracket expression to indicate that that portion of the string might contain any digit.  The second is the \w found in the final bracket expression.  This is meant to show that the search parameters following the .com might contain any digit, or upper or lower case letter.
 
 ### The OR Operator
+Regular expressions can utilize an OR operator, represented by a pipe |, to add additional logic to the parameters.  ORs can be used to make grouping constructs more flexible while still utilizing the capturing benefit of the constructs.  For example, (a|b|c) would no longer be a strict match for only the string "abc" but now acts more like [abc] while still capturing the  matched data.  However, there are no OR operators within this URL regex.
 
 ### Flags
+
 
 ### Character Escapes
 
