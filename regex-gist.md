@@ -85,8 +85,14 @@ In our URL regex we have three brackets expressions, which I will reprint below:
 The first uses character classes and character escapes that will be discussed later, but essentially means that this expression will match with any string that contains a digit, a lowercase letter, a period, or a hyphen.  The second simply includes lowercase letters and a period.  The last one will match with any string that contains a forward slash, any uppercase or lowercase letter or digit, or a period or hyphen.
 
 ### Character Classes
+Character classes are means of simplifying regular expressions so that you do not have to list out every possible letter, digit, or symbol that you might be attempting to match.  Some common classes include \d for any digit 0-9, \w for any letter or digit, including both lower and upper case, and \s which matches with whitespace.  Like with bracket expressions, you can logically invert these classes by using upper case letters in the class.  For example, \D would match with any string that contains no digits at all.
 
+In the URL regex, we see two character classes called:
 
+```
+/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+```
+The first is seen in the second grouping construct.  The expression utilizes a \d within a bracket expression to indicate that that portion of the string might contain any digit.  The second is the \w found in the final bracket expression.  This is meant to show that the search parameters following the .com might contain any digit, or upper or lower case letter.
 
 ### The OR Operator
 
