@@ -101,6 +101,14 @@ Regular expressions can utilize an OR operator, represented by a pipe |, to add 
 Flags are used to define additional functionality or limits of a regular expression.  They are found after the forward slash that ends a regex.  The most common flags are "g", "i", and "m", which indicate that the regex should be a global, case-insensitive, or multi-line search, respectively.  There are also no flags in this URL regex.
 
 ### Character Escapes
+Character escapes are used when you would like to add a search parameters of a character that also has an inherent regex definition already.  For example, a period . represents a character class that matches with any character at all, be it letter, digit, symbol, etc.  However, if you would like to add a period into your bracket expression, you can use a character escape,  initiated with a backslash, to allow the character to "escape" its regex definition.  For example, \. in a bracket expression no longer refers to any character at all but instead simply the actual period . character.
+
+There are multiple character escapes found in the URL regex, which I will reprint below:
+
+```
+\/\/      \.      \.        \.          \/          \.        \/
+```
+While there are multiple instances, there are really only two types of escapes here.   The first is for the forward slash /, which typically begin and end regular expressions.  However, because actual forward slashes are quite common in URLs, we use the character escapes to include them in the bracket expressions.  The second is for the period . character, the reasoning for which I outlined in the paragraph above.  Periods are also quite common in URLs, so we must use escapes to avoid triggering  their inherent regex meanings.
 
 ## Author
 
