@@ -112,4 +112,6 @@ While there are multiple instances, there are really only two types of escapes h
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Nate Johnson
+[GitHub](github.com/njohnson2897)
+[LinkedIn](www.linkedin.com/in/nate-johnson-87396422b)
